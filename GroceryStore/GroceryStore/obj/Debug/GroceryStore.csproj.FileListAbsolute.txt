@@ -1,0 +1,11 @@
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\bin\Debug\GroceryStore.exe.config
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\bin\Debug\GroceryStore.exe
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\bin\Debug\GroceryStore.pdb
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.csproj.AssemblyReference.cache
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.csproj.SuggestedBindingRedirects.cache
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.Form1.resources
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.Properties.Resources.resources
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.csproj.GenerateResource.cache
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.csproj.CoreCompileInputs.cache
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.exe
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.pdb
