@@ -19,7 +19,7 @@ namespace GroceryStore
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -86,12 +86,57 @@ namespace GroceryStore
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.KeyPreview = true;
 
         }
 
         private void label3_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void addItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AddItem add = new AddItem();
+            add.Show();
+        }
+
+        private void Form1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.Control==true && e.KeyCode == Keys.A)
+            {
+                addItemsToolStripMenuItem.PerformClick();
+            }
+            else if (e.Control == true && e.KeyCode == Keys.D)
+            {
+                removeItemsToolStripMenuItem.PerformClick();
+            }
+            else if (e.Control == true && e.KeyCode == Keys.F)
+            {
+                searchItemsToolStripMenuItem.PerformClick();
+            }
+        }
+
+        private void removeItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteItem del = new DeleteItem();
+            del.Show();
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void searchItemsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SearchItem search = new SearchItem();
+            search.Show();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+          
         }
     }
 }

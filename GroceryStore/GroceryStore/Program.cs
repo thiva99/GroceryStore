@@ -16,7 +16,8 @@ namespace GroceryStore
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new AddItem());
+            //Application.Run(new AddItem());
+            Application.Run(new Form1());
         }
     }
 }

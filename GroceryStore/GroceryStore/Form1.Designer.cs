@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.barcode = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -44,6 +44,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.itemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.textBox9 = new System.Windows.Forms.TextBox();
@@ -60,42 +66,47 @@
             this.textBox15 = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button4 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.panel6 = new System.Windows.Forms.Panel();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.itemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.amount = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.exitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.itemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.removeItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
+            this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // textBox1
+            // barcode
             // 
-            this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.barcode.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
-            this.textBox1.BackColor = System.Drawing.SystemColors.Window;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(174, 69);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(298, 29);
-            this.textBox1.TabIndex = 0;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.barcode.BackColor = System.Drawing.SystemColors.Window;
+            this.barcode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.barcode.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.barcode.Location = new System.Drawing.Point(174, 69);
+            this.barcode.Name = "barcode";
+            this.barcode.ReadOnly = true;
+            this.barcode.Size = new System.Drawing.Size(298, 29);
+            this.barcode.TabIndex = 0;
+            this.barcode.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // label1
             // 
@@ -289,6 +300,48 @@
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
+            // itemNo
+            // 
+            this.itemNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.itemNo.FillWeight = 40F;
+            this.itemNo.HeaderText = "ITEM NO";
+            this.itemNo.Name = "itemNo";
+            this.itemNo.ReadOnly = true;
+            this.itemNo.Width = 102;
+            // 
+            // pCode
+            // 
+            this.pCode.FillWeight = 80F;
+            this.pCode.HeaderText = "PRODUCT CODE";
+            this.pCode.Name = "pCode";
+            // 
+            // pName
+            // 
+            this.pName.FillWeight = 150.3604F;
+            this.pName.HeaderText = "PRODUCT NAME";
+            this.pName.Name = "pName";
+            // 
+            // uPrice
+            // 
+            this.uPrice.FillWeight = 50F;
+            this.uPrice.HeaderText = "UNIT PRICE";
+            this.uPrice.Name = "uPrice";
+            this.uPrice.ReadOnly = true;
+            // 
+            // qty
+            // 
+            this.qty.FillWeight = 50F;
+            this.qty.HeaderText = "QUNTITY";
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            // 
+            // amount
+            // 
+            this.amount.FillWeight = 50F;
+            this.amount.HeaderText = "AMOUNT";
+            this.amount.Name = "amount";
+            this.amount.ReadOnly = true;
+            // 
             // textBox5
             // 
             this.textBox5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
@@ -479,56 +532,18 @@
             this.label15.TabIndex = 31;
             this.label15.Text = "BALANCE";
             // 
-            // button1
-            // 
-            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.button1.BackColor = System.Drawing.Color.Red;
-            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(444, 603);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 45);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Remove";
-            this.button1.UseVisualStyleBackColor = false;
-            // 
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.button2.BackColor = System.Drawing.Color.Red;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(598, 689);
+            this.button2.Location = new System.Drawing.Point(557, 18);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(110, 45);
+            this.button2.Size = new System.Drawing.Size(110, 36);
             this.button2.TabIndex = 33;
             this.button2.Text = "Close";
             this.button2.UseVisualStyleBackColor = false;
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.Location = new System.Drawing.Point(769, 689);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 45);
-            this.button3.TabIndex = 34;
-            this.button3.Text = "Clear";
-            this.button3.UseVisualStyleBackColor = false;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // button4
-            // 
-            this.button4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button4.BackColor = System.Drawing.Color.Lime;
-            this.button4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button4.Location = new System.Drawing.Point(1078, 689);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(110, 45);
-            this.button4.TabIndex = 35;
-            this.button4.Text = "Save";
-            this.button4.UseVisualStyleBackColor = false;
             // 
             // panel1
             // 
@@ -567,6 +582,31 @@
             this.panel3.Size = new System.Drawing.Size(1179, 136);
             this.panel3.TabIndex = 38;
             // 
+            // panel6
+            // 
+            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.panel6.Controls.Add(this.button1);
+            this.panel6.Location = new System.Drawing.Point(15, 5);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(513, 119);
+            this.panel6.TabIndex = 40;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(383, 65);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 36);
+            this.button1.TabIndex = 36;
+            this.button1.Text = "Close";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // panel4
             // 
             this.panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -583,21 +623,41 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.button5);
+            this.panel5.Controls.Add(this.button3);
             this.panel5.Controls.Add(this.checkBox1);
+            this.panel5.Controls.Add(this.button2);
             this.panel5.Location = new System.Drawing.Point(44, 676);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1179, 77);
             this.panel5.TabIndex = 40;
             // 
-            // panel6
+            // button5
             // 
-            this.panel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panel6.Location = new System.Drawing.Point(15, 5);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(513, 119);
-            this.panel6.TabIndex = 40;
+            this.button5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(255)))), ((int)(((byte)(128)))));
+            this.button5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button5.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button5.Location = new System.Drawing.Point(1038, 18);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(110, 36);
+            this.button5.TabIndex = 35;
+            this.button5.Text = "Save";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button3
+            // 
+            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button3.BackColor = System.Drawing.Color.Red;
+            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button3.Location = new System.Drawing.Point(724, 18);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(110, 36);
+            this.button3.TabIndex = 34;
+            this.button3.Text = "Close";
+            this.button3.UseVisualStyleBackColor = false;
             // 
             // checkBox1
             // 
@@ -611,47 +671,80 @@
             this.checkBox1.Text = "Print after save";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // itemNo
+            // menuStrip1
             // 
-            this.itemNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.itemNo.FillWeight = 40F;
-            this.itemNo.HeaderText = "ITEM NO";
-            this.itemNo.Name = "itemNo";
-            this.itemNo.ReadOnly = true;
-            this.itemNo.Width = 102;
+            this.menuStrip1.BackColor = System.Drawing.Color.Transparent;
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.filesToolStripMenuItem,
+            this.itemsToolStripMenuItem,
+            this.helpToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(10, 10, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(1264, 33);
+            this.menuStrip1.TabIndex = 41;
+            this.menuStrip1.Text = "menuStrip1";
             // 
-            // pCode
+            // filesToolStripMenuItem
             // 
-            this.pCode.FillWeight = 80F;
-            this.pCode.HeaderText = "PRODUCT CODE";
-            this.pCode.Name = "pCode";
+            this.filesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.exitToolStripMenuItem,
+            this.exitToolStripMenuItem1});
+            this.filesToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.filesToolStripMenuItem.Name = "filesToolStripMenuItem";
+            this.filesToolStripMenuItem.Size = new System.Drawing.Size(48, 21);
+            this.filesToolStripMenuItem.Text = "Files";
             // 
-            // pName
+            // exitToolStripMenuItem
             // 
-            this.pName.FillWeight = 150.3604F;
-            this.pName.HeaderText = "PRODUCT NAME";
-            this.pName.Name = "pName";
+            this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(100, 22);
+            this.exitToolStripMenuItem.Text = "Exit";
             // 
-            // uPrice
+            // exitToolStripMenuItem1
             // 
-            this.uPrice.FillWeight = 50F;
-            this.uPrice.HeaderText = "UNIT PRICE";
-            this.uPrice.Name = "uPrice";
-            this.uPrice.ReadOnly = true;
+            this.exitToolStripMenuItem1.Name = "exitToolStripMenuItem1";
+            this.exitToolStripMenuItem1.Size = new System.Drawing.Size(100, 22);
+            this.exitToolStripMenuItem1.Text = "Exit";
             // 
-            // qty
+            // itemsToolStripMenuItem
             // 
-            this.qty.FillWeight = 50F;
-            this.qty.HeaderText = "QUNTITY";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
+            this.itemsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.addItemsToolStripMenuItem,
+            this.removeItemsToolStripMenuItem,
+            this.searchItemsToolStripMenuItem});
+            this.itemsToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.itemsToolStripMenuItem.Name = "itemsToolStripMenuItem";
+            this.itemsToolStripMenuItem.Size = new System.Drawing.Size(55, 21);
+            this.itemsToolStripMenuItem.Text = "Items";
             // 
-            // amount
+            // addItemsToolStripMenuItem
             // 
-            this.amount.FillWeight = 50F;
-            this.amount.HeaderText = "AMOUNT";
-            this.amount.Name = "amount";
-            this.amount.ReadOnly = true;
+            this.addItemsToolStripMenuItem.Name = "addItemsToolStripMenuItem";
+            this.addItemsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.addItemsToolStripMenuItem.Text = "Add items";
+            this.addItemsToolStripMenuItem.Click += new System.EventHandler(this.addItemsToolStripMenuItem_Click);
+            // 
+            // removeItemsToolStripMenuItem
+            // 
+            this.removeItemsToolStripMenuItem.Name = "removeItemsToolStripMenuItem";
+            this.removeItemsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.removeItemsToolStripMenuItem.Text = "Remove Items";
+            this.removeItemsToolStripMenuItem.Click += new System.EventHandler(this.removeItemsToolStripMenuItem_Click);
+            // 
+            // searchItemsToolStripMenuItem
+            // 
+            this.searchItemsToolStripMenuItem.Name = "searchItemsToolStripMenuItem";
+            this.searchItemsToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.searchItemsToolStripMenuItem.Text = "Search Items";
+            this.searchItemsToolStripMenuItem.Click += new System.EventHandler(this.searchItemsToolStripMenuItem_Click);
+            // 
+            // helpToolStripMenuItem
+            // 
+            this.helpToolStripMenuItem.Font = new System.Drawing.Font("Segoe UI Black", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
+            this.helpToolStripMenuItem.Size = new System.Drawing.Size(49, 21);
+            this.helpToolStripMenuItem.Text = "Help";
             // 
             // Form1
             // 
@@ -671,12 +764,8 @@
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.barcode);
             this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button4);
-            this.Controls.Add(this.button3);
-            this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.textBox15);
@@ -698,18 +787,24 @@
             this.Controls.Add(this.panel4);
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Grocery Store";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.Form1_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.Form1_KeyDown);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);
+            this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -717,7 +812,7 @@
 
         #endregion
 
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox barcode;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;
@@ -748,10 +843,7 @@
         private System.Windows.Forms.TextBox textBox15;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Panel panel3;
@@ -765,6 +857,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn uPrice;
         private System.Windows.Forms.DataGridViewTextBoxColumn qty;
         private System.Windows.Forms.DataGridViewTextBoxColumn amount;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem filesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem itemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addItemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem removeItemsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchItemsToolStripMenuItem;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
     }
 }
 
