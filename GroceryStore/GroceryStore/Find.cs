@@ -10,24 +10,19 @@ using System.Windows.Forms;
 
 namespace GroceryStore
 {
-    public partial class DeleteItem : Form
+    public partial class FindItem : Form
     {
-        public DeleteItem()
+        public FindItem()
         {
             InitializeComponent();
         }
 
-        private void textBox5_TextChanged(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void DeleteItem_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label5_Click(object sender, EventArgs e)
+        private void item_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace GroceryStore
 {
-    public partial class SearchItem : Form
+    public partial class UpdateItem : Form
     {
-        public SearchItem()
+        public UpdateItem()
         {
             InitializeComponent();
         }

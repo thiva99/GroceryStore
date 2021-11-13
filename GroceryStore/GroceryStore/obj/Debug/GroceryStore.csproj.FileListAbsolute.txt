@@ -11,4 +11,5 @@ D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\G
 D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.pdb
 D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.AddItem.resources
 D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.DeleteItem.resources
-D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.SearchItem.resources
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.UpdateItem.resources
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.FindItem.resources

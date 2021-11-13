@@ -111,9 +111,13 @@ namespace GroceryStore
             {
                 removeItemsToolStripMenuItem.PerformClick();
             }
-            else if (e.Control == true && e.KeyCode == Keys.F)
+            else if (e.Control == true && e.KeyCode == Keys.U)
             {
                 searchItemsToolStripMenuItem.PerformClick();
+            }
+            else if (e.Control == true && e.KeyCode == Keys.F)
+            {
+                findToolStripMenuItem.PerformClick();
             }
         }
 
@@ -130,13 +134,19 @@ namespace GroceryStore
 
         private void searchItemsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            SearchItem search = new SearchItem();
+            UpdateItem search = new UpdateItem();
             search.Show();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
           
+        }
+
+        private void findToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FindItem find = new FindItem();
+            find.Show();
         }
     }
 }
