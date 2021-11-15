@@ -76,7 +76,9 @@ namespace GroceryStore
 
             com.ExecuteNonQuery();
 
-            MessageBox.Show("Successfully added");
+
+
+            MessageBox.Show("item added success", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
 
