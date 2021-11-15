@@ -103,7 +103,7 @@ namespace GroceryStore
 
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
-            if(e.Control==true && e.KeyCode == Keys.A)
+            if( e.KeyCode == Keys.F11)
             {
                 addItemsToolStripMenuItem.PerformClick();
             }
@@ -115,7 +115,7 @@ namespace GroceryStore
             {
                 searchItemsToolStripMenuItem.PerformClick();
             }
-            else if (e.Control == true && e.KeyCode == Keys.F)
+            else if ( e.KeyCode == Keys.F12)
             {
                 findToolStripMenuItem.PerformClick();
             }
@@ -147,6 +147,11 @@ namespace GroceryStore
         {
             FindItem find = new FindItem();
             find.Show();
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
+        {
+
         }
     }
 }

@@ -41,14 +41,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.pCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.itemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.uPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.itemNo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pCode = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.pName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.uPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.qty = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Action = new System.Windows.Forms.DataGridViewButtonColumn();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
@@ -70,6 +71,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label5);
             this.panel1.Controls.Add(this.label2);
             this.panel1.Controls.Add(this.button3);
@@ -103,12 +105,13 @@
             this.button3.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Location = new System.Drawing.Point(953, 156);
+            this.button3.Location = new System.Drawing.Point(818, 156);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(110, 36);
             this.button3.TabIndex = 35;
             this.button3.Text = "Find";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox8
             // 
@@ -172,60 +175,6 @@
             this.label3.TabIndex = 10;
             this.label3.Text = "PRODUCT CODE";
             // 
-            // Action
-            // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.White;
-            this.Action.DefaultCellStyle = dataGridViewCellStyle1;
-            this.Action.FillWeight = 50F;
-            this.Action.HeaderText = "Action";
-            this.Action.Name = "Action";
-            this.Action.Text = "Update";
-            // 
-            // qty
-            // 
-            this.qty.FillWeight = 50F;
-            this.qty.HeaderText = "AVAILABLE QUNTITY";
-            this.qty.Name = "qty";
-            this.qty.ReadOnly = true;
-            // 
-            // pName
-            // 
-            this.pName.FillWeight = 150.3604F;
-            this.pName.HeaderText = "PRODUCT NAME";
-            this.pName.Name = "pName";
-            // 
-            // pCode
-            // 
-            this.pCode.FillWeight = 80F;
-            this.pCode.HeaderText = "PRODUCT CODE";
-            this.pCode.Name = "pCode";
-            // 
-            // itemNo
-            // 
-            this.itemNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.itemNo.DefaultCellStyle = dataGridViewCellStyle2;
-            this.itemNo.FillWeight = 40F;
-            this.itemNo.HeaderText = "ITEM ID";
-            this.itemNo.Name = "itemNo";
-            this.itemNo.ReadOnly = true;
-            this.itemNo.Width = 102;
-            // 
-            // uPrice
-            // 
-            dataGridViewCellStyle3.Format = "C2";
-            dataGridViewCellStyle3.NullValue = null;
-            this.uPrice.DefaultCellStyle = dataGridViewCellStyle3;
-            this.uPrice.FillWeight = 50F;
-            this.uPrice.HeaderText = "UNIT PRICE";
-            this.uPrice.Name = "uPrice";
-            this.uPrice.ReadOnly = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
@@ -255,6 +204,78 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1179, 427);
             this.panel2.TabIndex = 54;
+            // 
+            // button1
+            // 
+            this.button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.button1.BackColor = System.Drawing.Color.Red;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Location = new System.Drawing.Point(953, 156);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 36);
+            this.button1.TabIndex = 50;
+            this.button1.Text = "Clear";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // itemNo
+            // 
+            this.itemNo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.itemNo.DataPropertyName = "ID";
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.itemNo.DefaultCellStyle = dataGridViewCellStyle1;
+            this.itemNo.FillWeight = 40F;
+            this.itemNo.HeaderText = "ITEM ID";
+            this.itemNo.Name = "itemNo";
+            this.itemNo.ReadOnly = true;
+            this.itemNo.Width = 102;
+            // 
+            // pCode
+            // 
+            this.pCode.DataPropertyName = "productCode";
+            this.pCode.FillWeight = 80F;
+            this.pCode.HeaderText = "PRODUCT CODE";
+            this.pCode.Name = "pCode";
+            // 
+            // pName
+            // 
+            this.pName.DataPropertyName = "productName";
+            this.pName.FillWeight = 150.3604F;
+            this.pName.HeaderText = "PRODUCT NAME";
+            this.pName.Name = "pName";
+            // 
+            // uPrice
+            // 
+            this.uPrice.DataPropertyName = "unitPrice";
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.uPrice.DefaultCellStyle = dataGridViewCellStyle2;
+            this.uPrice.FillWeight = 50F;
+            this.uPrice.HeaderText = "UNIT PRICE";
+            this.uPrice.Name = "uPrice";
+            this.uPrice.ReadOnly = true;
+            // 
+            // qty
+            // 
+            this.qty.FillWeight = 50F;
+            this.qty.HeaderText = "AVAILABLE QUNTITY";
+            this.qty.Name = "qty";
+            this.qty.ReadOnly = true;
+            // 
+            // Action
+            // 
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Padding = new System.Windows.Forms.Padding(10, 0, 10, 0);
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.White;
+            this.Action.DefaultCellStyle = dataGridViewCellStyle3;
+            this.Action.FillWeight = 50F;
+            this.Action.HeaderText = "Action";
+            this.Action.Name = "Action";
+            this.Action.Text = "Update";
             // 
             // DeleteItem
             // 
@@ -289,13 +310,14 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DataGridViewButtonColumn Action;
-        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn pCode;
-        private System.Windows.Forms.DataGridViewTextBoxColumn itemNo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn uPrice;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn itemNo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pCode;
+        private System.Windows.Forms.DataGridViewTextBoxColumn pName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn uPrice;
+        private System.Windows.Forms.DataGridViewTextBoxColumn qty;
+        private System.Windows.Forms.DataGridViewButtonColumn Action;
     }
 }
