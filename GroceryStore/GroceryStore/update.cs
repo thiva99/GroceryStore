@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
-using USB_Barcode_Scanner
+using USB_Barcode_Scanner;
 
 
 namespace GroceryStore

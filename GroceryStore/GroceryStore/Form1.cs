@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using USB_Barcode_Scanner;
 
+using System.Data.Sql;
+using System.Data.SqlClient;
+
 namespace GroceryStore
 {
     public partial class Form1 : Form
@@ -34,7 +37,29 @@ namespace GroceryStore
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-           
+
+            String code = barcode.Text;
+            String itemc = textBox3.Text;
+
+            SqlConnection con = new SqlConnection("Data Source=THIVANKA;Initial Catalog=Grocery;Integrated Security=True");
+
+            con.Open();
+
+            SqlCommand cmd=new SqlCommand("select * from store where  productCode='" + itemc + "' or barCode= '" + code + "'  ", con);
+            SqlDataReader read;
+            read = cmd.ExecuteReader();
+
+            if (read.Read())
+            {
+                textBox3.Text = read["productCode"].ToString();
+                textBox8.Text = read["productName"].ToString();
+                textUprice.Text = read["unitPrice"].ToString();
+
+
+            }
+
+            con.Close();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -189,6 +214,92 @@ namespace GroceryStore
 
                     double amount;
 
+                    
+                    if (textBox2.Text=="")
+                    {
+                        amount = qty * uprice;
+
+                        String amo = Convert.ToString(amount);
+                        Ino = Ino + 1;
+
+                        String[] arr = new string[6];
+
+
+                        arr[0] = Convert.ToString(Ino);
+                        arr[1] = textBox3.Text;
+                        arr[2] = textBox8.Text;
+                        arr[3] = textUprice.Text;
+                        arr[4] = txtqty.Text;
+                        arr[5] = amo;
+
+                        ListViewItem list = new ListViewItem(arr);
+                        listView1.Items.Add(list);
+
+
+
+                        txtTotal.Text = ((Convert.ToDouble(txtTotal.Text) + Convert.ToDouble(amo)).ToString());
+
+                        double final = ((Convert.ToDouble(txtTotal.Text) * Convert.ToDouble(txtdis.Text)) / 100);
+
+                        txtgTotal.Text = ((Convert.ToDouble(txtTotal.Text) - final).ToString());
+
+
+                        
+
+                        clearTextBox();
+                    }
+
+                    else
+                    {
+                        
+                        double temp;
+
+                        temp = ((uprice * Convert.ToDouble(textBox2.Text)) / 100);
+
+                        amount = (uprice - temp) * qty;
+
+
+                        String amo = Convert.ToString(amount);
+                        Ino = Ino + 1;
+
+                        String[] arr = new string[6];
+
+
+                        arr[0] = Convert.ToString(Ino);
+                        arr[1] = textBox3.Text;
+                        arr[2] = textBox8.Text;
+                        arr[3] = textUprice.Text;
+                        arr[4] = txtqty.Text;
+                        arr[5] = amo;
+
+                        ListViewItem list = new ListViewItem(arr);
+                        listView1.Items.Add(list);
+
+
+
+                        txtTotal.Text = ((Convert.ToDouble(txtTotal.Text) + Convert.ToDouble(amo)).ToString());
+
+                        double final = ((Convert.ToDouble(txtTotal.Text) * Convert.ToDouble(txtdis.Text)) / 100);
+
+                        txtgTotal.Text = ((Convert.ToDouble(txtTotal.Text) - final).ToString());
+
+
+                        
+
+                        clearTextBox();
+                    }
+                }
+            }
+            else
+            {
+                int qty = Convert.ToInt32(txtqty.Text);
+                double uprice = Convert.ToDouble(textUprice.Text);
+
+                double amount;
+
+
+                if (textBox2.Text == "")
+                {
                     amount = qty * uprice;
 
                     String amo = Convert.ToString(amount);
@@ -216,50 +327,60 @@ namespace GroceryStore
                     txtgTotal.Text = ((Convert.ToDouble(txtTotal.Text) - final).ToString());
 
 
-                    bal.Text = (((Convert.ToDouble(paidAmount.Text)) - (Convert.ToDouble(txtgTotal.Text))).ToString());
+                    
+
+                    clearTextBox();
+                }
+
+                else
+                {
+
+                    double temp;
+
+                    temp = ((uprice * Convert.ToDouble(textBox2.Text)) / 100);
+
+                    amount = (uprice - temp) * qty;
+
+
+                    String amo = Convert.ToString(amount);
+                    Ino = Ino + 1;
+
+                    String[] arr = new string[6];
+
+
+                    arr[0] = Convert.ToString(Ino);
+                    arr[1] = textBox3.Text;
+                    arr[2] = textBox8.Text;
+                    arr[3] = textUprice.Text;
+                    arr[4] = txtqty.Text;
+                    arr[5] = amo;
+
+                    ListViewItem list = new ListViewItem(arr);
+                    listView1.Items.Add(list);
+
+
+
+                    txtTotal.Text = ((Convert.ToDouble(txtTotal.Text) + Convert.ToDouble(amo)).ToString());
+
+                    double final = ((Convert.ToDouble(txtTotal.Text) * Convert.ToDouble(txtdis.Text)) / 100);
+
+                    txtgTotal.Text = ((Convert.ToDouble(txtTotal.Text) - final).ToString());
+
+
+                    
 
                     clearTextBox();
                 }
             }
-            else
-            {
-                int qty = Convert.ToInt32(txtqty.Text);
-                double uprice = Convert.ToDouble(textUprice.Text);
-
-                double amount;
-
-                amount = qty * uprice;
-
-                String amo = Convert.ToString(amount);
-                Ino = Ino + 1;
-
-                String[] arr = new string[6];
-
-
-                arr[0] = Convert.ToString(Ino);
-                arr[1] = textBox3.Text;
-                arr[2] = textBox8.Text;
-                arr[3] = textUprice.Text;
-                arr[4] = txtqty.Text;
-                arr[5] = amo;
-
-                ListViewItem list = new ListViewItem(arr);
-                listView1.Items.Add(list);
-
-
-
-                txtTotal.Text = ((Convert.ToDouble(txtTotal.Text) + Convert.ToDouble(amo)).ToString());
-
-                double final = ((Convert.ToDouble(txtTotal.Text) * Convert.ToDouble(txtdis.Text)) / 100);
-
-                txtgTotal.Text = ((Convert.ToDouble(txtTotal.Text) - final).ToString());
-
-
-                bal.Text = (((Convert.ToDouble(paidAmount.Text)) - (Convert.ToDouble(txtgTotal.Text))).ToString());
-
-                clearTextBox();
-            }
         }
+
+
+
+
+
+
+
+
 
         private void textUprice_TextChanged(object sender, EventArgs e)
         {
@@ -274,6 +395,16 @@ namespace GroceryStore
             textBox2.Clear();
             txtqty.Clear();
             textUprice.Clear();
+        }
+
+        private void paidAmount_TextChanged(object sender, EventArgs e)
+        {
+            bal.Text = (((Convert.ToDouble(paidAmount.Text)) - (Convert.ToDouble(txtgTotal.Text))).ToString());
+        }
+
+        private void bal_TextChanged(object sender, EventArgs e)
+        {
+             
         }
     }
 }

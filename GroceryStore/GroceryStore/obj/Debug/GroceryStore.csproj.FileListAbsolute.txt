@@ -13,3 +13,5 @@ D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\G
 D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.DeleteItem.resources
 D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.UpdateItem.resources
 D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.FindItem.resources
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\bin\Debug\USB-Barcode-Scanner.dll
+D:\GitHub Files\Grocery Store\GroceryStore\GroceryStore\GroceryStore\obj\Debug\GroceryStore.csproj.CopyComplete
