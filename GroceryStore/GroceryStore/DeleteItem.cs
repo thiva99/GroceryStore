@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
+using USB_Barcode_Scanner;
+
 namespace GroceryStore
 {
     public partial class DeleteItem : Form
@@ -23,6 +25,13 @@ namespace GroceryStore
         public DeleteItem()
         {
             InitializeComponent();
+            BarcodeScanner barco = new BarcodeScanner(barcode);
+            barco.BarcodeScanned += Barco_BarcodeScanned;
+        }
+
+        private void Barco_BarcodeScanned(object sender, BarcodeScannerEventArgs e)
+        {
+            barcode.Text = e.Barcode;
         }
 
         private void textBox5_TextChanged(object sender, EventArgs e)

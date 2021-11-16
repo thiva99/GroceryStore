@@ -11,6 +11,8 @@ using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
+using USB_Barcode_Scanner
+
 
 namespace GroceryStore
 {
@@ -25,8 +27,15 @@ namespace GroceryStore
         public UpdateItem()
         {
             InitializeComponent();
-             
+            BarcodeScanner barco = new BarcodeScanner(barcode);
+            barco.BarcodeScanned += Barco_BarcodeScanned;
 
+
+        }
+
+        private void Barco_BarcodeScanned(object sender, BarcodeScannerEventArgs e)
+        {
+            barcode.Text = e.Barcode;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -53,10 +62,7 @@ namespace GroceryStore
             dataGridView1.AutoGenerateColumns = false;
             dataGridView1.DataSource = dt;
 
-
             con.Close();
-
-
 
         }
 
@@ -68,8 +74,6 @@ namespace GroceryStore
 
             displaydata(name, icode, barcod);
 
-
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -79,8 +83,8 @@ namespace GroceryStore
 
         public void clean()
         {
-              barcode.Clear();
-            textBox3.Clear();
+             barcode.Clear();
+             textBox3.Clear();
              textBox8.Clear();
         }
 
@@ -100,7 +104,7 @@ namespace GroceryStore
 
 
 
-                    if (id == "" || name == null)
+                    if (id == "" || name == "")
                     {
 
                         MessageBox.Show("Enter valid details.", "Message", MessageBoxButtons.OK, MessageBoxIcon.Warning);
@@ -119,11 +123,12 @@ namespace GroceryStore
 
                         if (a > 0)
                         {
-                            MessageBox.Show("'" + id + "' is updated");
+                            MessageBox.Show("'" + id + "' is updated", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
                         }
                         else
                         {
-                            MessageBox.Show("'" + id + "' is not updated");
+                            MessageBox.Show("'" + id + "' is not updated", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
                         }

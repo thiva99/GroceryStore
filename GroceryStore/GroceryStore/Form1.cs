@@ -7,15 +7,30 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using USB_Barcode_Scanner;
 
 namespace GroceryStore
 {
     public partial class Form1 : Form
     {
+        int Ino=0;
+
+
         public Form1()
         {
             InitializeComponent();
+            BarcodeScanner barco = new BarcodeScanner(barcode);
+            barco.BarcodeScanned += Barco_BarcodeScanned;
         }
+
+        private void Barco_BarcodeScanned(object sender, BarcodeScannerEventArgs e)
+        {
+            barcode.Text = e.Barcode;
+        }
+
+
+
+
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
@@ -119,6 +134,10 @@ namespace GroceryStore
             {
                 findToolStripMenuItem.PerformClick();
             }
+            else if (e.KeyCode == Keys.Enter)
+            {
+               btnAdd.PerformClick();
+            }
         }
 
         private void removeItemsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -152,6 +171,109 @@ namespace GroceryStore
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
+        }
+
+        private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAddClick(object sender, EventArgs e)
+        {
+            if (textBox3.Text == "")
+            {
+                if (MessageBox.Show("Is it all?", "Message", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question) == DialogResult.No)
+                {
+                    int qty = Convert.ToInt32(txtqty.Text);
+                    double uprice = Convert.ToDouble(textUprice.Text);
+
+                    double amount;
+
+                    amount = qty * uprice;
+
+                    String amo = Convert.ToString(amount);
+                    Ino = Ino + 1;
+
+                    String[] arr = new string[6];
+
+
+                    arr[0] = Convert.ToString(Ino);
+                    arr[1] = textBox3.Text;
+                    arr[2] = textBox8.Text;
+                    arr[3] = textUprice.Text;
+                    arr[4] = txtqty.Text;
+                    arr[5] = amo;
+
+                    ListViewItem list = new ListViewItem(arr);
+                    listView1.Items.Add(list);
+
+
+
+                    txtTotal.Text = ((Convert.ToDouble(txtTotal.Text) + Convert.ToDouble(amo)).ToString());
+
+                    double final = ((Convert.ToDouble(txtTotal.Text) * Convert.ToDouble(txtdis.Text)) / 100);
+
+                    txtgTotal.Text = ((Convert.ToDouble(txtTotal.Text) - final).ToString());
+
+
+                    bal.Text = (((Convert.ToDouble(paidAmount.Text)) - (Convert.ToDouble(txtgTotal.Text))).ToString());
+
+                    clearTextBox();
+                }
+            }
+            else
+            {
+                int qty = Convert.ToInt32(txtqty.Text);
+                double uprice = Convert.ToDouble(textUprice.Text);
+
+                double amount;
+
+                amount = qty * uprice;
+
+                String amo = Convert.ToString(amount);
+                Ino = Ino + 1;
+
+                String[] arr = new string[6];
+
+
+                arr[0] = Convert.ToString(Ino);
+                arr[1] = textBox3.Text;
+                arr[2] = textBox8.Text;
+                arr[3] = textUprice.Text;
+                arr[4] = txtqty.Text;
+                arr[5] = amo;
+
+                ListViewItem list = new ListViewItem(arr);
+                listView1.Items.Add(list);
+
+
+
+                txtTotal.Text = ((Convert.ToDouble(txtTotal.Text) + Convert.ToDouble(amo)).ToString());
+
+                double final = ((Convert.ToDouble(txtTotal.Text) * Convert.ToDouble(txtdis.Text)) / 100);
+
+                txtgTotal.Text = ((Convert.ToDouble(txtTotal.Text) - final).ToString());
+
+
+                bal.Text = (((Convert.ToDouble(paidAmount.Text)) - (Convert.ToDouble(txtgTotal.Text))).ToString());
+
+                clearTextBox();
+            }
+        }
+
+        private void textUprice_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        public void clearTextBox()
+        {
+            barcode.Clear();
+            textBox3.Clear();
+            textBox8.Clear();
+            textBox2.Clear();
+            txtqty.Clear();
+            textUprice.Clear();
         }
     }
 }

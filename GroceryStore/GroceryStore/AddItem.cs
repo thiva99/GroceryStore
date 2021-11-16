@@ -10,6 +10,8 @@ using System.Windows.Forms;
 using System.Data.Sql;
 using System.Data.SqlClient;
 
+using USB_Barcode_Scanner;
+
 namespace GroceryStore
 {
     public partial class AddItem : Form
@@ -25,6 +27,14 @@ namespace GroceryStore
         public AddItem()
         {
             InitializeComponent();
+            BarcodeScanner barco = new BarcodeScanner(textBox1);
+            barco.BarcodeScanned += Barco_BarcodeScanned; ;
+
+        }
+
+        private void Barco_BarcodeScanned(object sender, BarcodeScannerEventArgs e)
+        {
+            textBox1.Text = e.Barcode;
         }
 
         private void label2_Click(object sender, EventArgs e)
