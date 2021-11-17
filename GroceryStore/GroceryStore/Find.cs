@@ -16,6 +16,7 @@ namespace GroceryStore
 {
     public partial class FindItem : Form
     {
+        String itemc,na,pr;
         public FindItem()
         {
             InitializeComponent();
@@ -64,6 +65,46 @@ namespace GroceryStore
 
 
         }
-        
+
+        private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int index = e.RowIndex;
+            DataGridViewRow row = dataGridView1.Rows[index];
+            itemc = row.Cells[0].Value.ToString();
+            na = row.Cells[1].Value.ToString();
+            pr = row.Cells[2].Value.ToString();
+
+            textBox9.Text = itemc.ToString();
+            textBox5.Text = na.ToString();
+            textBox1.Text = pr.ToString();
+
+        }
+
+        private void FindItem_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                 
+                button1.PerformClick();
+            }
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Form1 form = new Form1();
+            form.tempp(itemc);
+            form.Show();
+            
+        }
+
+        private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+           
+        }
+
+        private void label9_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

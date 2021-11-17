@@ -17,6 +17,15 @@ namespace GroceryStore
     public partial class Form1 : Form
     {
         int Ino=0;
+        String[] arr = new string[6];
+         
+
+        
+
+        public void tempp(String a)
+        {
+            textBox3.Text = Convert.ToString(a);
+        }
 
 
         public Form1()
@@ -24,6 +33,8 @@ namespace GroceryStore
             InitializeComponent();
             BarcodeScanner barco = new BarcodeScanner(barcode);
             barco.BarcodeScanned += Barco_BarcodeScanned;
+
+            
         }
 
         private void Barco_BarcodeScanned(object sender, BarcodeScannerEventArgs e)
@@ -51,6 +62,7 @@ namespace GroceryStore
 
             if (read.Read())
             {
+                barcode.Text=read["barCode"].ToString();
                 textBox3.Text = read["productCode"].ToString();
                 textBox8.Text = read["productName"].ToString();
                 textUprice.Text = read["unitPrice"].ToString();
@@ -69,7 +81,28 @@ namespace GroceryStore
 
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
+            String code = barcode.Text;
+            String itemc = textBox3.Text;
 
+            SqlConnection con = new SqlConnection("Data Source=THIVANKA;Initial Catalog=Grocery;Integrated Security=True");
+
+            con.Open();
+
+            SqlCommand cmd = new SqlCommand("select * from store where  productCode='" + itemc + "' or barCode= '" + code + "'  ", con);
+            SqlDataReader read;
+            read = cmd.ExecuteReader();
+
+            if (read.Read())
+            {
+                barcode.Text = read["barCode"].ToString();
+                textBox3.Text = read["productCode"].ToString();
+                textBox8.Text = read["productName"].ToString();
+                textUprice.Text = read["unitPrice"].ToString();
+
+
+            }
+
+            con.Close();
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -184,7 +217,39 @@ namespace GroceryStore
 
         private void button1_Click(object sender, EventArgs e)
         {
-          
+
+
+            if(textBox5.Text==""){
+                MessageBox.Show("Enter a Item no", "Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            }
+            else if (Convert.ToInt32(textBox5.Text) == 0)
+            {
+                MessageBox.Show("Enter a Item no", "Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+            }
+            else if (textBox9.Text == "")
+            {
+                MessageBox.Show("Enter a Item product code", "Message", MessageBoxButtons.OKCancel, MessageBoxIcon.Information);
+
+            }
+            else
+            {
+                int itemNo = Convert.ToInt32(textBox5.Text);
+                itemNo--;
+                listView1.Items.RemoveAt(itemNo);
+                textBox5.Clear();
+                textBox9.Clear();
+
+
+            }
+
+
+
+
+
+
+
+
+
         }
 
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
@@ -222,7 +287,7 @@ namespace GroceryStore
                         String amo = Convert.ToString(amount);
                         Ino = Ino + 1;
 
-                        String[] arr = new string[6];
+                         
 
 
                         arr[0] = Convert.ToString(Ino);
@@ -292,6 +357,9 @@ namespace GroceryStore
             }
             else
             {
+
+
+
                 int qty = Convert.ToInt32(txtqty.Text);
                 double uprice = Convert.ToDouble(textUprice.Text);
 
@@ -405,6 +473,16 @@ namespace GroceryStore
         private void bal_TextChanged(object sender, EventArgs e)
         {
              
+        }
+
+        private void label8_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
