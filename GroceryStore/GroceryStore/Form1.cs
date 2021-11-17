@@ -22,10 +22,7 @@ namespace GroceryStore
 
         
 
-        public void tempp(String a)
-        {
-            textBox3.Text = Convert.ToString(a);
-        }
+        
 
 
         public Form1()
@@ -50,13 +47,15 @@ namespace GroceryStore
         {
 
             String code = barcode.Text;
+
+
             String itemc = textBox3.Text;
 
             SqlConnection con = new SqlConnection("Data Source=THIVANKA;Initial Catalog=Grocery;Integrated Security=True");
 
             con.Open();
 
-            SqlCommand cmd=new SqlCommand("select * from store where  productCode='" + itemc + "' or barCode= '" + code + "'  ", con);
+            SqlCommand cmd=new SqlCommand("select * from store where    barCode= '" + code + "'  ", con);
             SqlDataReader read;
             read = cmd.ExecuteReader();
 
@@ -71,6 +70,7 @@ namespace GroceryStore
             }
 
             con.Close();
+            
 
         }
 
@@ -82,13 +82,16 @@ namespace GroceryStore
         private void textBox3_TextChanged(object sender, EventArgs e)
         {
             String code = barcode.Text;
+
+             
+
             String itemc = textBox3.Text;
 
             SqlConnection con = new SqlConnection("Data Source=THIVANKA;Initial Catalog=Grocery;Integrated Security=True");
 
             con.Open();
 
-            SqlCommand cmd = new SqlCommand("select * from store where  productCode='" + itemc + "' or barCode= '" + code + "'  ", con);
+            SqlCommand cmd = new SqlCommand("select * from store where  productCode='" + itemc + "'    ", con);
             SqlDataReader read;
             read = cmd.ExecuteReader();
 
@@ -103,6 +106,8 @@ namespace GroceryStore
             }
 
             con.Close();
+
+            
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -255,7 +260,12 @@ namespace GroceryStore
         private void findToolStripMenuItem_Click(object sender, EventArgs e)
         {
             FindItem find = new FindItem();
-            find.Show();
+            if (find.ShowDialog() == DialogResult.OK)
+            {
+                textBox3.Text = find.ival;
+            }
+             
+
         }
 
         private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
@@ -278,6 +288,7 @@ namespace GroceryStore
                     double uprice = Convert.ToDouble(textUprice.Text);
 
                     double amount;
+
 
                     
                     if (textBox2.Text=="")
@@ -439,7 +450,10 @@ namespace GroceryStore
 
                     clearTextBox();
                 }
+
+                
             }
+            
         }
 
 

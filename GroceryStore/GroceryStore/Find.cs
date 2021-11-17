@@ -17,6 +17,7 @@ namespace GroceryStore
     public partial class FindItem : Form
     {
         String itemc,na,pr;
+        String v;
         public FindItem()
         {
             InitializeComponent();
@@ -62,7 +63,8 @@ namespace GroceryStore
         {
             String name=item.Text;
             displaydata(name);
-
+             
+            
 
         }
 
@@ -88,12 +90,15 @@ namespace GroceryStore
                 button1.PerformClick();
             }
         }
-
+        public String ival
+        {
+            get{ return v; }
+            set{ v = value; }
+        }
         private void button1_Click(object sender, EventArgs e)
         {
-            Form1 form = new Form1();
-            form.tempp(itemc);
-            form.Show();
+            ival = itemc;
+            
             
         }
 
