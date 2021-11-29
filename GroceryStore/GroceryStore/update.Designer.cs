@@ -69,6 +69,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(1179, 427);
             this.panel2.TabIndex = 39;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // label2
             // 
@@ -316,6 +317,7 @@
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.panel2);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximumSize = new System.Drawing.Size(1280, 800);
             this.MinimumSize = new System.Drawing.Size(800, 344);
             this.Name = "UpdateItem";

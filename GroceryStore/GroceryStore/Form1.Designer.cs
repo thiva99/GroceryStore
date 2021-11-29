@@ -72,7 +72,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.button5 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.filesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,6 +83,8 @@
             this.searchItemsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.findToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -272,6 +273,7 @@
             this.textBox9.Name = "textBox9";
             this.textBox9.Size = new System.Drawing.Size(160, 29);
             this.textBox9.TabIndex = 18;
+            this.textBox9.TextChanged += new System.EventHandler(this.textBox9_TextChanged);
             // 
             // label9
             // 
@@ -298,6 +300,7 @@
             this.txtTotal.Size = new System.Drawing.Size(110, 29);
             this.txtTotal.TabIndex = 22;
             this.txtTotal.Text = "0";
+            this.txtTotal.TextChanged += new System.EventHandler(this.txtTotal_TextChanged);
             // 
             // txtgTotal
             // 
@@ -311,6 +314,7 @@
             this.txtgTotal.Size = new System.Drawing.Size(110, 29);
             this.txtgTotal.TabIndex = 23;
             this.txtgTotal.Tag = "";
+            this.txtgTotal.Text = "0";
             // 
             // txtdis
             // 
@@ -323,6 +327,7 @@
             this.txtdis.Size = new System.Drawing.Size(110, 29);
             this.txtdis.TabIndex = 24;
             this.txtdis.Text = "0";
+            this.txtdis.TextChanged += new System.EventHandler(this.txtdis_TextChanged);
             // 
             // label11
             // 
@@ -418,7 +423,7 @@
             this.button2.BackColor = System.Drawing.Color.Salmon;
             this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button2.Location = new System.Drawing.Point(572, 18);
+            this.button2.Location = new System.Drawing.Point(724, 16);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 36);
             this.button2.TabIndex = 33;
@@ -597,7 +602,6 @@
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel5.Controls.Add(this.button5);
-            this.panel5.Controls.Add(this.button3);
             this.panel5.Controls.Add(this.checkBox1);
             this.panel5.Controls.Add(this.button2);
             this.panel5.Location = new System.Drawing.Point(44, 671);
@@ -618,19 +622,6 @@
             this.button5.Text = "Save";
             this.button5.UseVisualStyleBackColor = false;
             this.button5.Click += new System.EventHandler(this.button5_Click);
-            // 
-            // button3
-            // 
-            this.button3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.button3.BackColor = System.Drawing.Color.Red;
-            this.button3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button3.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button3.Location = new System.Drawing.Point(724, 18);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(110, 36);
-            this.button3.TabIndex = 34;
-            this.button3.Text = "Clear";
-            this.button3.UseVisualStyleBackColor = false;
             // 
             // checkBox1
             // 
@@ -731,6 +722,21 @@
             this.helpToolStripMenuItem.Size = new System.Drawing.Size(49, 21);
             this.helpToolStripMenuItem.Text = "Help";
             // 
+            // printDocument1
+            // 
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
+            // 
+            // printPreviewDialog1
+            // 
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
+            this.printPreviewDialog1.Load += new System.EventHandler(this.printPreviewDialog1_Load);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -756,6 +762,7 @@
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(800, 600);
             this.Name = "Form1";
@@ -824,7 +831,6 @@
         private System.Windows.Forms.ToolStripMenuItem removeItemsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem searchItemsToolStripMenuItem;
         private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem1;
@@ -838,6 +844,8 @@
         private System.Windows.Forms.ColumnHeader columnHeader4;
         private System.Windows.Forms.ColumnHeader columnHeader5;
         private System.Windows.Forms.ColumnHeader columnHeader6;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }
 

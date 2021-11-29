@@ -88,6 +88,20 @@ namespace GroceryStore
 
 
 
+            SqlConnection connn = new SqlConnection("Data Source=THIVANKA;Initial Catalog=Grocery;Integrated Security=True");
+
+            connn.Open();
+
+            SqlDataAdapter adpt = new SqlDataAdapter("select * from store ", connn);
+            DataTable dt = new DataTable();
+
+            adpt.Fill(dt);
+
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = dt;
+
+            connn.Close();
+
             MessageBox.Show("item added success", "Message", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
 
@@ -104,10 +118,38 @@ namespace GroceryStore
 
         private void button3_Click(object sender, EventArgs e)
         {
-            textBox1.Text = "";
-            textBox2.Text = "";
-            textBox3.Text = "";
-             
+            textBox1.Clear();
+            textBox2.Clear();
+            textBox3.Clear();
+            textBox4.Clear();
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+        
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            SqlConnection connn = new SqlConnection("Data Source=THIVANKA;Initial Catalog=Grocery;Integrated Security=True");
+
+            connn.Open();
+
+            SqlDataAdapter adpt = new SqlDataAdapter("select * from store ", connn);
+            DataTable dt = new DataTable();
+
+            adpt.Fill(dt);
+
+            dataGridView1.AutoGenerateColumns = false;
+            dataGridView1.DataSource = dt;
+
+            connn.Close();
         }
     }
 }
