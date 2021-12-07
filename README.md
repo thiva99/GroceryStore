@@ -1,2 +1,4 @@
-# GroceryStore
- POS System for a grocery
+# POS System
+ POS system for a grocery
+ 
+ 
